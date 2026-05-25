@@ -1,0 +1,34 @@
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  b = branch -lva
+  r = remote -v
+  glog = log --graph
+  gl = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an <%ae>%C(reset)%C(bold yellow)%d%C(reset)'
+  glf = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an <%ae>%C(reset)%C(bold yellow)%d%C(reset)%n%n%b'
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+
+[core]
+  autocrlf = false
+  preloadindex = true
+  fscache = true
+  includes = true ; search all config files from 'include'
+        quotepath = false
+	editor = code --wait
+
+[include]
+  path = ~/.gituser.inc ; find it in `$HOME` directory
+
+[credential]
+        helper = cache --timeout=43200
+[user]
+	name = Denis
+	email = denis@bk.ru
+
+[init]
+	defaultBranch = main
